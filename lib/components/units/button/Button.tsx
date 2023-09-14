@@ -2,8 +2,7 @@ import React from "react"
 
 interface IProps {
   context: string
-  bgColor?: string
-  textColor?: string
+  buttonTheme: string
   textSize?: string
   borderColor?: string
   width?: string
@@ -16,12 +15,11 @@ export const Button = (props: IProps) => {
     <button
       onClick={props.onClick}
       className={`
+      ${props.buttonTheme}
       ${props.width ? `w-[${props.width}]` : "w-[140px]"} 
       ${props.height ? `h-[${props.height}]` : "h-[36px]"}
-      ${props.textColor ? `text-[${props.textColor}]` : "text-[#5A4E47]"}
       ${props.textSize ? `text-[${props.textSize}]` : "text-[18px]"}
-      ${props.bgColor ? `bg-[${props.bgColor}]` : "bg-white"}
-        rounded-md relative NotoMediumFont `}
+        rounded-md relative NotoMediumFont`}
     >
       <span>{props.context}</span>
     </button>

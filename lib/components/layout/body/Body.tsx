@@ -1,11 +1,12 @@
 "use client"
 import Image from "next/image"
-import React from "react"
+import React, { useRef } from "react"
 import { Slider } from "../../units/slider/Slider"
 import { ImageWrap } from "../../units/image/ImageWrap"
 import { Article } from "../article/Article"
 import { Button } from "../../units/button/Button"
 import { Card } from "../../units/card/Card"
+import { motion } from "framer-motion"
 
 const imgInfo = [
   { src: "/img/banner/first_banner.jpeg", alt: "first_banner" },
@@ -17,6 +18,7 @@ const imgInfo = [
 const whiteButton: React.ReactNode = (
   <Button
     context="바로가기"
+    buttonTheme="white-button"
     onClick={() => {
       window.location.href = "#"
     }}
@@ -25,32 +27,51 @@ const whiteButton: React.ReactNode = (
 const brownButton: React.ReactNode = (
   <Button
     context="바로가기"
-    textColor="white"
-    bgColor="#5A4E47"
+    buttonTheme="brown-button"
     onClick={() => {
       window.location.href = "#"
     }}
   />
 )
 
-const firstCard: React.ReactNode = (
-  <Card
-    title="트렌디 화이트"
-    imgInfo={{ src: "/img/card/first_card.svg", alt: "first_card" }}
-    context="Lorem ipsum dolor sit amet consectetur. Neque accumsan lectus tellus a dictumst arcu. Venenatis nec volutpat euismod a."
-    button={brownButton}
-  />
-)
-const secondCard: React.ReactNode = (
-  <Card
-    title="트렌디 내추럴"
-    imgInfo={{ src: "/img/card/second_card.svg", alt: "second_card" }}
-    context="Lorem ipsum dolor sit amet consectetur. Neque accumsan lectus tellus a dictumst arcu. Venenatis nec volutpat euismod a."
-    button={brownButton}
-  />
-)
-
 export const Body = () => {
+  const scrollRef = useRef(null)
+  const emojiVariants = {
+    hidden: { opacity: 0, y: 100, rotateY: 100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotateY: 0,
+      transition: {
+        rotateY: {
+          duration: 0.3,
+        },
+        y: {
+          type: "spring",
+          damping: 3,
+          stiffness: 50,
+          restDelta: 0.01,
+          duration: 0.3,
+        },
+      },
+    },
+  }
+  const firstCard: React.ReactNode = (
+    <Card
+      title="트렌디 화이트"
+      imgInfo={{ src: "/img/card/first_card.svg", alt: "first_card" }}
+      context="Lorem ipsum dolor sit amet consectetur. Neque accumsan lectus tellus a dictumst arcu. Venenatis nec volutpat euismod a."
+      button={brownButton}
+    />
+  )
+  const secondCard: React.ReactNode = (
+    <Card
+      title="트렌디 내추럴"
+      imgInfo={{ src: "/img/card/second_card.svg", alt: "second_card" }}
+      context="Lorem ipsum dolor sit amet consectetur. Neque accumsan lectus tellus a dictumst arcu. Venenatis nec volutpat euismod a."
+      button={brownButton}
+    />
+  )
   return (
     <main className="w-full min-h-screen ">
       <article>
@@ -77,14 +98,15 @@ export const Body = () => {
         />
 
         {/* Fourth Section (Movie) */}
-        <section className="w-full bg-white flex justify-center">
+        <section className="w-full min-h-[560px] h-[50%] bg-red-50 flex justify-center">
           <div className="w-[65%] flex justify-center">
-            <Image
+            <Article title="시공 영상" />
+            {/* <Image
               className="!h-auto !relative"
               src="/img/article/movie.svg"
               alt="KS Interior"
               fill
-            />
+            /> */}
           </div>
         </section>
 
