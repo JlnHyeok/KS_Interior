@@ -23,7 +23,8 @@ const emojiVariants = {
         duration: 0.6,
       },
       y: {
-        damping: 3,
+        type: "spring",
+        damping: 9,
         stiffness: 50,
         restDelta: 0.01,
         duration: 0.3,
@@ -54,7 +55,7 @@ export const Article = (props: IProps) => {
         variants={emojiVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ root: scrollRef, once: true, amount: 0.4 }}
+        viewport={{ root: scrollRef, once: true, amount: 0.2 }}
       >
         {children}
       </motion.div>
