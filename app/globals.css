@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  --tw-ring-color: transparent;
+}
+
+@font-face {
+  font-family: "GmarketSansBold";
+  src: url("/fonts/banner/GmarketSansTTFBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NotoSansMedium";
+  src: url("/fonts/basic/NotoSansKR-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NotoSansRegular";
+  src: url("/fonts/basic/NotoSansKR-Regular.ttf") format("truetype");
+}
+
+.GmarketBoldFont {
+  font-family: "GmarketSansBold";
+}
+
+.NotoMediumFont {
+  font-family: "NotoSansMedium";
+}
+.nav button {
+  height: 50px;
+}
+
+.NotoRegularFont {
+  font-family: "NotoSansRegular";
+}
