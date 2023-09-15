@@ -1,12 +1,12 @@
 "use client"
 import Image from "next/image"
-import React, { useRef } from "react"
+import React from "react"
 import { Slider } from "../../units/slider/Slider"
 import { ImageWrap } from "../../units/image/ImageWrap"
 import { Article } from "../article/Article"
 import { Button } from "../../units/button/Button"
 import { Card } from "../../units/card/Card"
-import { motion } from "framer-motion"
+import { MovieSmall } from "../../units/movieSmall/MovieSmall"
 
 const imgInfo = [
   { src: "/img/banner/first_banner.jpeg", alt: "first_banner" },
@@ -35,27 +35,6 @@ const brownButton: React.ReactNode = (
 )
 
 export const Body = () => {
-  const scrollRef = useRef(null)
-  const emojiVariants = {
-    hidden: { opacity: 0, y: 100, rotateY: 100 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      rotateY: 0,
-      transition: {
-        rotateY: {
-          duration: 0.3,
-        },
-        y: {
-          type: "spring",
-          damping: 3,
-          stiffness: 50,
-          restDelta: 0.01,
-          duration: 0.3,
-        },
-      },
-    },
-  }
   const firstCard: React.ReactNode = (
     <Card
       title="트렌디 화이트"
@@ -94,19 +73,33 @@ export const Body = () => {
         <Article
           title="Best Interior Trend"
           bgInfo={{ src: "/img/article/best_bg.svg", alt: "Best" }}
-          card={[firstCard, secondCard]}
+          card={{
+            components: [firstCard, secondCard],
+            style: "w-[35%] h-[100%]",
+          }}
         />
 
         {/* Fourth Section (Movie) */}
-        <section className="w-full min-h-[560px] h-[50%] bg-red-50 flex justify-center">
-          <div className="w-[65%] flex justify-center">
-            <Article title="시공 영상" />
-            {/* <Image
-              className="!h-auto !relative"
-              src="/img/article/movie.svg"
-              alt="KS Interior"
-              fill
-            /> */}
+        <section className="w-full min-h-[700px] h-[60%] flex justify-center">
+          <div className="w-[88%] min-w-[1100px] flex justify-center">
+            <Article
+              title="시공 영상"
+              movie={{
+                components: [
+                  <div className="h-full flex items-center">
+                    <iframe
+                      className="w-full h-[95%]"
+                      src="https://www.youtube.com/embed/xGjVPFsJlEQ?si=l6yuVQti6CrOsWQ4"
+                      title="YouTube video player"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    ></iframe>
+                  </div>,
+                  <MovieSmall />,
+                ],
+                style: ["w-[55%] h-[95%] ", "w-[35%] h-[95%]"],
+              }}
+            />
           </div>
         </section>
 

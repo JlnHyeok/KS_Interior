@@ -1,8 +1,6 @@
 import React from "react"
 import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
 import { Carousel } from "react-responsive-carousel"
-import Image from "next/image"
-import Link from "next/link"
 import { ImageWrap } from "../image/ImageWrap"
 
 interface IProps {

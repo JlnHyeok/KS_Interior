@@ -1,6 +1,7 @@
 import React, { useRef } from "react"
 import { ImageWrap } from "../../units/image/ImageWrap"
-import { motion } from "framer-motion"
+import { Variants, motion } from "framer-motion"
+import { MotionDiv } from "../../motion/MotionDiv"
 
 interface IProps {
   title: string
@@ -9,10 +10,11 @@ interface IProps {
   divider?: boolean
   contents?: string
   button?: React.ReactNode
-  card?: React.ReactNode[]
+  card?: { components: React.ReactNode[]; style: string }
+  movie?: { components: React.ReactNode[]; style: string[] }
 }
 
-const emojiVariants = {
+const emojiVariants: Variants = {
   hidden: { opacity: 0, y: 100 },
   visible: {
     opacity: 1,
@@ -48,19 +50,7 @@ export const Article = (props: IProps) => {
       </motion.h1>
     )
   }
-  function motionDiv(children: React.ReactNode, className: string) {
-    return (
-      <motion.div
-        className={className}
-        variants={emojiVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ root: scrollRef, once: true, amount: 0.2 }}
-      >
-        {children}
-      </motion.div>
-    )
-  }
+
   function motionP(children: React.ReactNode) {
     return (
       <motion.p
@@ -77,31 +67,75 @@ export const Article = (props: IProps) => {
 
   return (
     <div className="w-full relative">
+      {/* Background Image */}
       {props.bgInfo && (
         <ImageWrap
           imgInfo={{ src: props.bgInfo?.src, alt: props.bgInfo?.alt }}
         />
       )}
       <div className="absolute z-10 w-full h-[80%] top-[12%] box-border ">
+        {/* Title Section */}
         {motionH1(props.title)}
         {props.divider && (
-          <div className="w-[100px] h-[1px] bg-[#333333] m-auto mt-8"></div>
+          <MotionDiv
+            className="w-[100px] h-[1px] bg-[#333333] m-auto mt-8"
+            amount={0.7}
+            scrollRef={scrollRef}
+            animationEffect={emojiVariants}
+          />
         )}
+
+        {/* Context Section */}
         {props.contents && motionP(props.contents)}
-        {props.button &&
-          motionDiv(
-            props.button,
-            "flex justify-center absolute w-full bottom-4"
-          )}
-        <div className="mt-10 flex justify-evenly w-[80%] mx-auto h-full box-border">
-          {props.card &&
-            props.card.map((card) =>
-              motionDiv(
-                card,
-                "w-[35%] h-[82%] bg-white relative rounded-md shadow-[4px_4px_20px_0_rgba(0,0,0,0.2)]"
-              )
-            )}
-        </div>
+
+        {/* Button Section */}
+        {props.button && (
+          <MotionDiv
+            children={props.button}
+            className="flex justify-center absolute w-full bottom-4"
+            animationEffect={emojiVariants}
+            amount={0.7}
+            scrollRef={scrollRef}
+          />
+        )}
+
+        {/* Card Section */}
+        {props.card && (
+          <div className="mt-10 flex justify-evenly w-[80%] mx-auto h-[80%] box-border">
+            {props.card.components.map((card, index) => (
+              <MotionDiv
+                key={index}
+                children={card}
+                className={props.card!.style}
+                amount={0.2}
+                scrollRef={scrollRef}
+                animationEffect={emojiVariants}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Movie Section */}
+        {props.movie && (
+          <div className="mt-10 flex justify-evenly w-[100%] mx-auto h-[88%] box-border">
+            <MotionDiv
+              children={props.movie.components[0]}
+              className={props.movie!.style[0]}
+              amount={0.2}
+              scrollRef={scrollRef}
+              animationEffect={emojiVariants}
+            />
+            <MotionDiv
+              children={props.movie.components[1]}
+              className={`${
+                props.movie!.style[1]
+              } flex-col flex items-center justify-between `}
+              amount={0.2}
+              scrollRef={scrollRef}
+              animationEffect={emojiVariants}
+            />
+          </div>
+        )}
       </div>
     </div>
   )

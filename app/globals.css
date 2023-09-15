@@ -27,6 +27,10 @@
   font-family: "NotoSansRegular";
   src: url("/fonts/basic/NotoSansKR-Regular.ttf") format("truetype");
 }
+@font-face {
+  font-family: "NotoSansLight";
+  src: url("/fonts/basic/NotoSansKR-Light.ttf") format("truetype");
+}
 
 .GmarketBoldFont {
   font-family: "GmarketSansBold";
@@ -35,12 +39,15 @@
 .NotoMediumFont {
   font-family: "NotoSansMedium";
 }
-.nav button {
-  height: 50px;
-}
 
 .NotoRegularFont {
   font-family: "NotoSansRegular";
+}
+.NotoLightFont {
+  font-family: "NotoSansLight";
+}
+.nav button {
+  height: 50px;
 }
 .brown-button {
   background-color: var(--brown-button-background-color);
