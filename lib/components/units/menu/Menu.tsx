@@ -31,7 +31,7 @@ const customTheme: CustomFlowbiteTheme = {
       // Item
       item: {
         container: "",
-        base: "menu flex items-center rounded justify-center py-3 px-4 text-sm text-gray-600 cursor-pointer w-full hover:bg-gray-100 focus:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 focus:outline-none dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white",
+        base: "min-w-[100px] menu flex items-center rounded justify-center py-3 px-4 text-sm text-gray-600 cursor-pointer w-full hover:bg-gray-100 focus:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 focus:outline-none dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white",
         icon: "mr-2 h-4 w-4",
       },
       style: {
