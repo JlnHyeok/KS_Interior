@@ -1,6 +1,6 @@
 import Image from "next/image"
-import Link from "next/link"
 import React from "react"
+import { Link } from 'next/link';
 
 interface IProps {
   imgInfo: {
@@ -20,6 +20,8 @@ export const ImageWrap = ({ imgInfo }: IProps) => {
           alt={imgInfo.alt}
           src={imgInfo.src}
           className={`!relative ${imgInfo.className}`}
+          blurDataURL={imgInfo.src}
+          placeholder="blur"
           fill
         />
       </div>
@@ -30,6 +32,8 @@ export const ImageWrap = ({ imgInfo }: IProps) => {
         alt={imgInfo.alt}
         src={imgInfo.src}
         className={`!relative ${imgInfo.className}`}
+        blurDataURL={imgInfo.src}
+        placeholder="blur"
         fill
       />
     </div>
