@@ -21,8 +21,8 @@ export const ImageWrap = ({ imgInfo, className }: IProps) => {
           alt={imgInfo.alt}
           src={imgInfo.src}
           className={`!relative ${imgInfo.className}`}
-          blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
           placeholder="blur"
+          blurDataURL={imgInfo.src}
           fill
         />
       </div>
@@ -33,7 +33,7 @@ export const ImageWrap = ({ imgInfo, className }: IProps) => {
         alt={imgInfo.alt}
         src={imgInfo.src}
         className={`!relative ${imgInfo.className}`}
-        blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+        blurDataURL={imgInfo.src}
         placeholder="blur"
         fill
       />
