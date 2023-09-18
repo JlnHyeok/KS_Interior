@@ -52,11 +52,11 @@ export const Body = () => {
     />
   )
   return (
-    <main className="w-full min-h-screen relative">
-      <article>
+    <main className="w-full min-h-screen xl:h-[5000px] relative">
+      <article className="w-full">
         {/* First Section (Slide) */}
-        <div className="w-full min-h-[80%]">
-          <Slider imgInfo={imgInfo} />
+        <div className="relative w-full aspect-[2.08/1]">
+          <Slider imgInfo={imgInfo} className="aspect-[2.08/1]" />
         </div>
 
         {/* Second Section (Vision) */}

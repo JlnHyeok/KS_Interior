@@ -5,12 +5,12 @@ import { ImageWrap } from "../image/ImageWrap"
 
 interface IProps {
   imgInfo: { src: string; alt: string }[]
+  className?: string
 }
 
-export const Slider = ({ imgInfo }: IProps) => {
+export const Slider = ({ imgInfo, className }: IProps) => {
   return (
     <Carousel
-      className="w-full h-full"
       showThumbs={false}
       showStatus={false}
       infiniteLoop={true}
@@ -19,7 +19,9 @@ export const Slider = ({ imgInfo }: IProps) => {
       stopOnHover={false}
       interval={5000}
     >
-      {imgInfo?.map((img, index) => ImageWrap({ imgInfo: { ...img, index } }))}
+      {imgInfo?.map((img, index) =>
+        ImageWrap({ imgInfo: { ...img, index }, className: className })
+      )}
     </Carousel>
   )
 }
