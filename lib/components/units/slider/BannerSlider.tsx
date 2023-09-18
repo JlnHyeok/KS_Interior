@@ -8,7 +8,7 @@ interface IProps {
   className?: string
 }
 
-export const Slider = ({ imgInfo, className }: IProps) => {
+export const BannerSlider = ({ imgInfo, className }: IProps) => {
   return (
     <Carousel
       showThumbs={false}

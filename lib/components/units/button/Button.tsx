@@ -7,6 +7,7 @@ interface IProps {
   borderColor?: string
   width?: string
   height?: string
+  arrowStyle?: string
   onClick?: () => void
 }
 
@@ -21,7 +22,15 @@ export const Button = (props: IProps) => {
       ${props.textSize ? `text-[${props.textSize}]` : "text-[18px]"}
         rounded-md relative NotoMediumFont`}
     >
-      <span>{props.context}</span>
+      <span
+        className={`mr-4 after:content-['〉'] ${
+          props.arrowStyle
+            ? props.arrowStyle
+            : "after:text-[14px] after:absolute after:right-2 after:top-[8px]"
+        } `}
+      >
+        {props.context}
+      </span>
     </button>
   )
 }

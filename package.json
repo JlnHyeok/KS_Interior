@@ -20,12 +20,16 @@
     "next": "13.4.19",
     "plaiceholder": "^3.0.0",
     "react": "18.2.0",
+    "react-alice-carousel": "^2.7.1",
     "react-dom": "18.2.0",
     "react-responsive-carousel": "^3.2.23",
+    "react-star-ratings": "^2.3.0",
     "sharp": "^0.32.5",
     "typescript": "5.2.2"
   },
   "devDependencies": {
+    "@types/react-slick": "^0.23.10",
+    "@types/react-star-ratings": "^2.3.0",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.59.2",
     "autoprefixer": "^10.4.15",

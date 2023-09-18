@@ -55,7 +55,7 @@ export const MovieSmall = () => {
             />
           </div>
           <div className="w-[60%] mr-3 ">
-            <h1 className="NotoMediumFont text-[1.2rem] w-full h-[30%]  text-ellipsis overflow-hidden  whitespace-nowrap">
+            <h1 className="NotoMediumFont text-[1.2rem] w-full h-[30%] text-ellipsis overflow-hidden  whitespace-nowrap">
               {props.title}
             </h1>
             <p className="NotoLightFont break-al text-xs text-[#7b7878] h-[50%]  text-ellipsis overflow-hidden py-2 box-border">
@@ -65,5 +65,19 @@ export const MovieSmall = () => {
         </div>
       ))}
     </>
+  )
+}
+
+export const MovieMain = () => {
+  return (
+    <div className="h-full flex items-center">
+      <iframe
+        className="w-full aspect-[16/10]"
+        src="https://www.youtube.com/embed/xGjVPFsJlEQ?si=l6yuVQti6CrOsWQ4"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+    </div>
   )
 }
