@@ -17,14 +17,14 @@ const responsive = {
 export const MultiSlider = ({ imgInfo, className }: IProps) => {
   const items = imgInfo.map((imgInfo, index) => (
     <div
-      className="mx-auto w-[80%] py-10"
+      className="mx-auto w-[93%] py-10"
       key={imgInfo.alt + index}
       data-value={index + 1}
     >
       <Card
         title="꼼꼼하게 시공해주셔서 너무 너무 감사합니다."
         smallTitle="트렌디 화이트"
-        height="aspect-[1/1.6]"
+        className="aspect-[1/1.6] !shadow-[0px_4px_7px_0_rgba(0,0,0,0.2)]"
         content="제가 원했던 느낌대로 시공해주시려고 노력하는 모습에 너무 좋았습니다 ㅎㅎ"
         score={true}
         style={{

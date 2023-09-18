@@ -121,7 +121,7 @@ export const Body = () => {
         </section>
 
         {/* Sixth Section (Review) */}
-        <section className="w-full aspect-[2.2/1] bg-white flex justify-center">
+        <section className="w-full aspect-[1.9/1] bg-white flex justify-center">
           <Article
             title="시공 후기"
             review={{
@@ -129,14 +129,6 @@ export const Body = () => {
               style: "",
             }}
           />
-          {/* <div className="w-[65%] pb-20 box-border flex justify-center">
-            <Image
-              className="w-full !h-auto !relative"
-              src="/img/article/review.svg"
-              alt="KS Interior"
-              fill
-            />
-          </div> */}
         </section>
 
         {/* Seventh Section (Noti & Consult) */}

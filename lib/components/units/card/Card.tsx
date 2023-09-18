@@ -4,7 +4,7 @@ import { Rating } from "../rating/Rating"
 
 interface IProps {
   title: string
-  height?: string
+  className?: string
   style?: {
     title?: string
     content?: string
@@ -20,9 +20,7 @@ interface IProps {
 export const Card = (props: IProps) => {
   return (
     <div
-      className={`
-      ${props.height ? props.height : "h-full"}
-      w-full bg-white relative rounded-md shadow-[4px_4px_20px_0_rgba(0,0,0,0.2)]`}
+      className={`"h-full" w-full bg-white relative rounded-md shadow-[4px_4px_20px_0_rgba(0,0,0,0.2)] ${props.className}`}
     >
       <ImageWrap imgInfo={props.imgInfo} />
       <div className="w-full aspect-[1/0.8]  mx-auto text-center flex flex-col items-center">
