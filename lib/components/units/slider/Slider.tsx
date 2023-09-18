@@ -10,6 +10,7 @@ interface IProps {
 export const Slider = ({ imgInfo }: IProps) => {
   return (
     <Carousel
+      className="w-full h-full"
       showThumbs={false}
       showStatus={false}
       infiniteLoop={true}
