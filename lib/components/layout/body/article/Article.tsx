@@ -1,10 +1,11 @@
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import { ImageWrap } from "../../../units/image/ImageWrap"
 import { Variants, motion } from "framer-motion"
 import { MotionDiv, MotionH1, MotionP } from "../../../motion/motionTag"
 
 interface IProps {
   title: string
+  isMobile?: boolean
   className?: string
   bgInfo?: { src: string; alt: string }
   imgInfo?: { src: string; alt: string }[]
@@ -39,6 +40,9 @@ const emojiVariants: Variants = {
 
 export const Article = (props: IProps) => {
   const scrollRef = useRef(null)
+  const [mobileCardBest, setMobileCardBest] = useState(
+    props.card?.components[0]
+  )
 
   return (
     <div className={`w-full relative ${props.className && props.className}`}>
@@ -51,7 +55,7 @@ export const Article = (props: IProps) => {
       <div className="absolute z-10 w-full h-[80%] top-[12%] box-border ">
         {/* Title Section */}
         <MotionH1
-          className="GmarketBoldFont text-center text-[36px]"
+          className="GmarketBoldFont text-center text-[36px] w-[90%]  m-auto"
           animationEffect={emojiVariants}
           amount={0.7}
           scrollRef={scrollRef}
@@ -61,7 +65,7 @@ export const Article = (props: IProps) => {
 
         {props.divider && (
           <MotionDiv
-            className="w-[100px] h-[1px] bg-[#333333] m-auto mt-8"
+            className="w-[20px] h-[1px] bg-[#333333] m-auto mt-8 md:w-[100px]"
             amount={0.7}
             scrollRef={scrollRef}
             animationEffect={emojiVariants}
@@ -71,7 +75,7 @@ export const Article = (props: IProps) => {
         {/* Context Section */}
         {props.contents && (
           <MotionP
-            className="NotoMediumFont mt-[6%] text-[16px] break-all  m-auto w-[720px]"
+            className="NotoMediumFont text-[16px] break-all  m-auto w-[80%] mt-[9%] md:w-[720px] md:mt-[6%]"
             animationEffect={emojiVariants}
             scrollRef={scrollRef}
             amount={0.4}
@@ -93,17 +97,38 @@ export const Article = (props: IProps) => {
 
         {/* Card Section */}
         {props.card && (
-          <div className="mt-[3%] flex justify-center gap-[5%] w-[80%] mx-auto h-[80%] box-border">
-            {props.card.components.map((card, index) => (
-              <MotionDiv
-                key={index}
-                children={card}
-                className={props.card!.style}
-                amount={0.2}
-                scrollRef={scrollRef}
-                animationEffect={emojiVariants}
-              />
-            ))}
+          <div className="mt-[3%] flex justify-center gap-[4%] w-[80%] mx-auto h-[80%] box-border">
+            {props.isMobile ? (
+              <div className="w-full h-full NotoMediumFont">
+                <div className="w-full h-[42px] flex items-center justify-between px-4 box-border">
+                  <button
+                    autoFocus
+                    onClick={() => setMobileCardBest(props.card?.components[0])}
+                    className="focus:border-b-2 pb-8 h-[28px] text-[#5A4E47] text-lg focus:outline-none border-black"
+                  >
+                    트렌디 화이트
+                  </button>
+                  <button
+                    onClick={() => setMobileCardBest(props.card?.components[1])}
+                    className="focus:border-b-2 pb-8 h-[28px] text-[#5A4E47] text-lg focus:outline-none border-black"
+                  >
+                    트렌디 내추럴
+                  </button>
+                </div>
+                <div className="w-full h-full mt-4">{mobileCardBest}</div>
+              </div>
+            ) : (
+              props.card.components.map((card, index) => (
+                <MotionDiv
+                  key={index}
+                  children={card}
+                  className={props.card!.style}
+                  amount={0.2}
+                  scrollRef={scrollRef}
+                  animationEffect={emojiVariants}
+                />
+              ))
+            )}
           </div>
         )}
 

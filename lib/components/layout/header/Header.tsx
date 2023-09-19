@@ -4,13 +4,16 @@ import Link from "next/link"
 
 export const Header = () => {
   return (
-    <header className="w-full h-20 flex justify-center text-white bg-[#5A4E47]">
-      <div className="flex w-[80%] ">
+    <header className="w-full h-20  relative flex justify-center text-white bg-[#5A4E47]">
+      <div className="flex w-full relative  justify-center md:justify-normal md:w-[80%]">
+        <div className="md:hidden w-20 h-20  absolute left-0 flex items-center justify-center">
+          Ham Icon
+        </div>
         {/* LOGO */}
-        <div className="GmarketBoldFont text-center flex items-center text-[24px] w-[30%]">
+        <div className="justify-center  GmarketBoldFont text-center flex items-center w-[60%] text-[24px] md:w-[30%] md:justify-normal">
           KS INTERIOR
         </div>
-        <nav className="NotoMediumFont w-[45%] !text-[16px] relative text-center flex justify-around items-center box-border ">
+        <nav className="md:flex md:justify-around md:items-center box-border NotoMediumFont w-[45%] !text-[16px] relative text-center hidden ">
           <Menu
             title="회사소개"
             menus={["회사개요", "기업문화", "연혁", "수상내역", "오시는길"]}
@@ -56,7 +59,7 @@ export const Header = () => {
             ]}
           />
         </nav>
-        <div className="text-center flex justify-center items-center w-[25%]">
+        <div className="md:flex md:justify-center md:items-center w-[25%] text-center hidden">
           <Link href="/login">
             <span className="text-xs ml-2">로그인</span>
           </Link>

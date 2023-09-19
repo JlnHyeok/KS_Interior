@@ -8,14 +8,7 @@
   --brown-button-background-color: #5a4e47;
   --white-button-font-color: #5a4e47;
   --white-button-background-color: white;
-  font-size: 16px;
 }
-
-/* @media (min-width: 1920px) {
-  * {
-    font-size: 18px;
-  }
-} */
 
 *::-webkit-scrollbar {
   display: none;
@@ -53,28 +46,4 @@
 }
 .NotoLightFont {
   font-family: "NotoSansLight";
-}
-.nav button {
-  height: 50px;
-}
-.brown-button {
-  background-color: var(--brown-button-background-color);
-  color: var(--brown-button-font-color);
-}
-.white-button {
-  background-color: var(--white-button-background-color);
-  color: var(--white-button-font-color);
-}
-.rate {
-  background: url(https://aldo814.github.io/jobcloud/html/images/user/star_bg02.png)
-    no-repeat;
-  width: 121px;
-  height: 20px;
-  position: relative;
-}
-.rate span {
-  position: absolute;
-  background: url(https://aldo814.github.io/jobcloud/html/images/user/star02.png);
-  width: auto;
-  height: 20px;
 }

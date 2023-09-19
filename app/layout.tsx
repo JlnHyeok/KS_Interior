@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className="w-full min-h-screen min-w-[1280px]">
+      <body className="w-full md:min-h-screen md:min-w-[1280px]">
         <Header />
         {children}
         <Footer />

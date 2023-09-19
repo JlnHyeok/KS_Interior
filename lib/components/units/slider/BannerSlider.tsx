@@ -6,9 +6,10 @@ import { ImageWrap } from "../image/ImageWrap"
 interface IProps {
   imgInfo: { src: string; alt: string }[]
   className?: string
+  isMobile: boolean
 }
 
-export const BannerSlider = ({ imgInfo, className }: IProps) => {
+export const BannerSlider = ({ imgInfo, className, isMobile }: IProps) => {
   return (
     <Carousel
       showThumbs={false}
@@ -18,6 +19,7 @@ export const BannerSlider = ({ imgInfo, className }: IProps) => {
       autoPlay={true}
       stopOnHover={false}
       interval={5000}
+      showArrows={!isMobile}
       renderArrowPrev={(onClickHandler, hasPrev, label) =>
         hasPrev && (
           <button
