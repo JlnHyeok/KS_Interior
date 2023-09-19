@@ -121,7 +121,7 @@ export const Body = () => {
         </section>
 
         {/* Sixth Section (Review) */}
-        <section className="w-full aspect-[1.9/1] bg-white flex justify-center">
+        <section className="w-full aspect-[2/1] max-h-[700px]  bg-white flex justify-center">
           <Article
             title="시공 후기"
             review={{

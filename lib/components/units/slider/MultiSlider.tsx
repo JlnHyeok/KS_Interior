@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import AliceCarousel from "react-alice-carousel"
 import "react-alice-carousel/lib/alice-carousel.css"
 import { Card } from "../card/Card"
@@ -10,20 +10,13 @@ interface IProps {
 
 const responsive = {
   0: { items: 1 },
-  568: { items: 2 },
   1024: { items: 4 },
 }
 
 export const MultiSlider = ({ imgInfo, className }: IProps) => {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
   const items = imgInfo.map((imgInfo, index) => (
     <div
-      className="mx-auto w-[93%] py-10"
+      className="mx-auto w-[240px] py-10"
       key={imgInfo.alt + index}
       data-value={index + 1}
     >
@@ -36,7 +29,7 @@ export const MultiSlider = ({ imgInfo, className }: IProps) => {
         style={{
           title: "!text-[1rem] w-[85%] !text-left",
           content:
-            "!text-xs !w-[85%] !text-[#333333] border-b-[1px] !mt-[4%] !h-[90px]",
+            "!text-xs !w-[85%] !text-[#333333] border-b-[1px] !mt-[4%] !h-[75px]",
         }}
         imgInfo={imgInfo}
       />
@@ -44,25 +37,23 @@ export const MultiSlider = ({ imgInfo, className }: IProps) => {
   ))
 
   return (
-    mounted && (
-      <AliceCarousel
-        mouseTracking
-        infinite
-        items={items}
-        responsive={responsive}
-        controlsStrategy="alternate"
-        disableDotsControls
-        renderPrevButton={() => (
-          <button className="absolute top-[50%] translate-y-[-50%] text-[3rem] -left-[50px]">
-            〈
-          </button>
-        )}
-        renderNextButton={() => (
-          <button className="!absolute top-[50%] translate-y-[-50%] text-[3rem] -right-[50px]">
-            〉
-          </button>
-        )}
-      />
-    )
+    <AliceCarousel
+      mouseTracking
+      infinite
+      items={items}
+      responsive={responsive}
+      controlsStrategy="alternate"
+      disableDotsControls
+      renderPrevButton={() => (
+        <button className="absolute top-[50%] translate-y-[-50%] text-[3rem] -left-[50px]">
+          〈
+        </button>
+      )}
+      renderNextButton={() => (
+        <button className="!absolute top-[50%] translate-y-[-50%] text-[3rem] -right-[50px]">
+          〉
+        </button>
+      )}
+    />
   )
 }
