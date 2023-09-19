@@ -22,7 +22,6 @@ export const ImageWrap = ({ imgInfo, className }: IProps) => {
           src={imgInfo.src}
           className={`!relative ${imgInfo.className}`}
           placeholder="blur"
-          blurDataURL={imgInfo.src}
           fill
         />
       </div>
@@ -33,7 +32,6 @@ export const ImageWrap = ({ imgInfo, className }: IProps) => {
         alt={imgInfo.alt}
         src={imgInfo.src}
         className={`!relative ${imgInfo.className}`}
-        blurDataURL={imgInfo.src}
         placeholder="blur"
         fill
       />
