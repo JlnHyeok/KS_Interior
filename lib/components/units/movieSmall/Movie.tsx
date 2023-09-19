@@ -43,7 +43,7 @@ export const MovieSmall = () => {
       {movieSmallInfo.map((props, index) => (
         <div
           key={index + props.context}
-          className="w-full flex my-auto justify-between border-b-[1px]"
+          className="w-full flex my-auto justify-between border-b-[1px] hover:cursor-pointer hover:scale-[1.02] duration-300"
         >
           <div className="w-[32%]  ">
             <ImageWrap

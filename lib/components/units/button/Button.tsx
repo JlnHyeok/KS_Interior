@@ -20,7 +20,7 @@ export const Button = (props: IProps) => {
       ${props.width ? `w-[${props.width}]` : "w-[140px]"} 
       ${props.height ? `h-[${props.height}]` : "h-[36px]"}
       ${props.textSize ? `text-[${props.textSize}]` : "text-[18px]"}
-        rounded-md relative NotoMediumFont`}
+        rounded-md relative NotoMediumFont hover:scale-105 duration-300`}
     >
       <span
         className={`mr-4 after:content-['〉'] ${

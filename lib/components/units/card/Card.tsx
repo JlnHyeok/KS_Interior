@@ -21,7 +21,7 @@ interface IProps {
 export const Card = (props: IProps) => {
   return (
     <div
-      className={`hover:cursor-pointer bg-white relative rounded-md shadow-[4px_4px_20px_0_rgba(0,0,0,0.2)] ${props.className}`}
+      className={`hover:cursor-pointer hover:scale-105 duration-300 bg-white relative rounded-md shadow-[4px_4px_20px_0_rgba(0,0,0,0.2)] ${props.className}`}
     >
       <ImageWrap imgInfo={props.imgInfo} />
       <div className="w-full aspect-[1/0.65] mx-auto text-center flex flex-col items-center">

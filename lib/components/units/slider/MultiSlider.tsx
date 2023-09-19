@@ -54,12 +54,12 @@ export const MultiSlider = ({ imgInfo, className }: IProps) => {
       controlsStrategy="alternate"
       disableDotsControls
       renderPrevButton={() => (
-        <button className="absolute top-[50%] translate-y-[-50%] text-[3rem] -left-[50px]">
+        <button className="absolute top-[50%] text-[#5A4E47] hover:scale-110 duration-300 font-extrabold translate-y-[-50%] text-[3rem] -left-[50px]">
           〈
         </button>
       )}
       renderNextButton={() => (
-        <button className="!absolute top-[50%] translate-y-[-50%] text-[3rem] -right-[50px]">
+        <button className="!absolute top-[50%] text-[#5A4E47] hover:scale-110 duration-300 font-extrabold translate-y-[-50%] text-[3rem] -right-[50px]">
           〉
         </button>
       )}
