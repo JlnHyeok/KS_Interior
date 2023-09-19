@@ -4,7 +4,7 @@ import React from "react"
 export const Footer = () => {
   return (
     <footer>
-      <section>
+      <section className="relative">
         <Image
           className="w-full !h-auto !relative"
           src="img/article/footer.svg"

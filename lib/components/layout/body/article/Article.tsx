@@ -39,6 +39,7 @@ const emojiVariants: Variants = {
 
 export const Article = (props: IProps) => {
   const scrollRef = useRef(null)
+
   return (
     <div className={`w-full relative ${props.className && props.className}`}>
       {/* Background Image */}
@@ -92,7 +93,7 @@ export const Article = (props: IProps) => {
 
         {/* Card Section */}
         {props.card && (
-          <div className="mt-10 flex justify-evenly w-[80%] mx-auto h-[80%] box-border">
+          <div className="mt-[3%] flex justify-center gap-[5%] w-[80%] mx-auto h-[80%] box-border">
             {props.card.components.map((card, index) => (
               <MotionDiv
                 key={index}

@@ -14,19 +14,19 @@ interface IProps {
   content: string
   button?: React.ReactNode
   score?: boolean
-  smallTitle?: string
+  subTitle?: string
 }
 
 export const Card = (props: IProps) => {
   return (
     <div
-      className={`"h-full" w-full bg-white relative rounded-md shadow-[4px_4px_20px_0_rgba(0,0,0,0.2)] ${props.className}`}
+      className={`hover:cursor-pointer bg-white relative rounded-md shadow-[4px_4px_20px_0_rgba(0,0,0,0.2)] ${props.className}`}
     >
       <ImageWrap imgInfo={props.imgInfo} />
-      <div className="w-full aspect-[1/0.8]  mx-auto text-center flex flex-col items-center">
-        {props?.smallTitle && (
+      <div className="w-full aspect-[1/0.65] mx-auto text-center flex flex-col items-center">
+        {props?.subTitle && (
           <span className="NotoRegularFont text-[#7b7878] w-[85%] text-left text-xs mt-[14px]">
-            [{props.smallTitle}]
+            [{props.subTitle}]
           </span>
         )}
         <h1
@@ -35,12 +35,12 @@ export const Card = (props: IProps) => {
           {props.title}
         </h1>
         <p
-          className={`NotoRegularFont text-left text-[16px] break-all w-[82%] mt-[2%] m-auto text-ellipsis overflow-hidden ${props.style?.content}`}
+          className={`h-[50%] NotoRegularFont text-left text-[16px] break-all w-[85%] mt-[2%] m-auto text-ellipsis overflow-hidden ${props.style?.content}`}
         >
           {props.content}
         </p>
         {props.score && (
-          <div className="w-[88%] h-[40px] flex items-center justify-between">
+          <div className="absolute bottom-2 w-[88%] h-[40px] flex items-center justify-between">
             <div className=" w-[60%] flex items-center">
               <span className="NotoMediumFont text-sm">별점 : </span>
               <Rating />
@@ -53,7 +53,7 @@ export const Card = (props: IProps) => {
       </div>
 
       {props.button && (
-        <div className="flex justify-center absolute w-full bottom-8">
+        <div className="flex justify-center absolute w-full bottom-6">
           {props.button}
         </div>
       )}

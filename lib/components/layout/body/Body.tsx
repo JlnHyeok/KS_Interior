@@ -84,10 +84,10 @@ export const Body = () => {
         {/* Third Section (Best)*/}
         <Article
           title="Best Interior Trend"
-          className="aspect-[16/9] bg-[#dfd3c354]"
+          className="aspect-[16/8] max-h-[800px] bg-[#dfd3c354]"
           card={{
             components: [firstCard, secondCard],
-            style: "w-[35%] h-[100%]",
+            style: "w-[35%] h-[100%] max-w-[400px]",
           }}
         />
 
@@ -133,12 +133,12 @@ export const Body = () => {
 
         {/* Seventh Section (Noti & Consult) */}
         <section>
-          <Image
+          {/* <Image
             className="w-full !h-auto !relative"
             src="/img/article/notice_consult.svg"
             alt="KS Interior"
             fill
-          />
+          /> */}
         </section>
       </article>
     </main>
