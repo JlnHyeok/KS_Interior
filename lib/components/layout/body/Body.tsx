@@ -71,6 +71,7 @@ export const Body = () => {
 
         {/* Second Section (Vision) */}
         <Article
+          className="aspect-[2.75/1]"
           title="KS Interior vision"
           bgInfo={{ src: "/img/vision/vision_bg.svg", alt: "Vision" }}
           divider={true}
