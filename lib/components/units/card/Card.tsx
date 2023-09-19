@@ -13,8 +13,9 @@ interface IProps {
   imgInfo: { src: string; alt: string }
   content: string
   button?: React.ReactNode
-  score?: boolean
+  score?: number
   subTitle?: string
+  date?: string
 }
 
 export const Card = (props: IProps) => {
@@ -43,10 +44,10 @@ export const Card = (props: IProps) => {
           <div className="absolute bottom-2 w-[88%] h-[40px] flex items-center justify-between">
             <div className=" w-[60%] flex items-center">
               <span className="NotoMediumFont text-sm">별점 : </span>
-              <Rating />
+              <Rating score={props.score!} />
             </div>
             <span className="NotoRegularFont text-xs text-[#999999]">
-              2023 - 04 - 20
+              {props.date}
             </span>
           </div>
         )}

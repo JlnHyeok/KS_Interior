@@ -132,7 +132,7 @@ export const Article = (props: IProps) => {
         {/* Review Section */}
         {props.review && (
           <MotionDiv
-            className="mt-[1.5%] flex justify-center w-[1100px] mx-auto h-[75%] box-border items-center"
+            className="mt-[1.5%] flex justify-center w-[1050px] mx-auto h-[75%] box-border items-center"
             children={props.review.components}
             amount={0.2}
             scrollRef={scrollRef}

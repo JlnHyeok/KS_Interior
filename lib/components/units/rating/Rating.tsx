@@ -1,11 +1,15 @@
 import React from "react"
 import StarRatings from "react-star-ratings"
 
-export const Rating = () => {
+interface IProps {
+  score: number
+}
+
+export const Rating = ({ score }: IProps) => {
   return (
     <div className="relative mb-1 ml-1">
       <StarRatings
-        rating={4}
+        rating={score}
         starRatedColor="orange"
         numberOfStars={5}
         name="rating"
