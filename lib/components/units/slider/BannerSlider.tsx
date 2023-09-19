@@ -18,6 +18,30 @@ export const BannerSlider = ({ imgInfo, className }: IProps) => {
       autoPlay={true}
       stopOnHover={false}
       interval={5000}
+      renderArrowPrev={(onClickHandler, hasPrev, label) =>
+        hasPrev && (
+          <button
+            type="button"
+            className="absolute top-[50%] left-5 translate-y-[-50%] text-[3.5rem] z-50 text-[#5A4E47]  hover:scale-110 duration-300"
+            onClick={onClickHandler}
+            title={label}
+          >
+            〈
+          </button>
+        )
+      }
+      renderArrowNext={(onClickHandler, hasNext, label) =>
+        hasNext && (
+          <button
+            type="button"
+            className="absolute right-5 top-[50%] translate-y-[-50%] text-[3.5rem] z-50 text-[#5A4E47]  hover:scale-110 duration-300"
+            onClick={onClickHandler}
+            title={label}
+          >
+            〉
+          </button>
+        )
+      }
     >
       {imgInfo?.map((img, index) =>
         ImageWrap({ imgInfo: { ...img, index }, className: className })

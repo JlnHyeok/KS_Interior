@@ -60,8 +60,10 @@ export const Header = () => {
           <Link href="/login">
             <span className="text-xs ml-2">로그인</span>
           </Link>
-          <span className="text-xs ml-2 mb-1">|</span>
-          <span className="text-xs ml-2">회원가입</span>
+          <span className="text-xs ml-2 mb-0">|</span>
+          <Link href="#">
+            <span className="text-xs ml-2">회원가입</span>
+          </Link>
         </div>
       </div>
     </header>
