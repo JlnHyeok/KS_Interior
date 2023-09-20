@@ -61,7 +61,7 @@ export const Body = ({ isMobile }: { isMobile: boolean }) => {
         <div className="relative md:w-full md:aspect-[2.08/1] aspect-[1/1.5]">
           <BannerSlider
             imgInfo={isMobile ? bannerMobileImgInfo : bannerDeskImgInfo}
-            className="md:aspect-[2.08/1] relative"
+            className="md:aspect-[2.08/1] aspect-[1/1.5] relative"
             isMobile={isMobile}
           />
         </div>
