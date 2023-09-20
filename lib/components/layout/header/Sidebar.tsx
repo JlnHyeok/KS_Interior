@@ -30,6 +30,7 @@ export function Sidebar({
               <HamburgerIcon
                 onClick={() => setSideBar(!sideBar)}
                 sideBar={sideBar}
+                isClose={true}
               />
               {/* LOGO */}
               <Logo logo="KS Interior" />

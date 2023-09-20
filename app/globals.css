@@ -47,6 +47,7 @@
 .NotoLightFont {
   font-family: "NotoSansLight";
 }
+
 .hamburger span {
   display: block;
   width: 30px;
@@ -59,9 +60,23 @@
   z-index: 1;
 
   transform-origin: 4px 0px;
+}
 
-  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-    background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+.close:before,
+.close:after {
+  position: absolute;
+  left: 35px;
+  top: 21px;
+  content: " ";
+  height: 40px;
+  width: 3px;
+  background-color: white;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
 }
 
 .arrow::after {

@@ -105,18 +105,16 @@ export const Body = ({ isMobile }: { isMobile: boolean }) => {
         </section>
 
         {/* Fifth Section (Service) */}
-        {!isMobile && (
-          <section className="w-full aspect-[6.5/1] flex justify-center items-center bg-[#5A4E47]">
-            <div className="w-[80%] flex justify-center items-center">
-              <h1 className="w-[70%] GmarketBoldFont text-center text-[3rem] text-white">
-                10초면 충분한 빠른 견적 서비스
-              </h1>
-              <Link href="#">
-                <Button context="바로가기" buttonTheme="white-button" />
-              </Link>
-            </div>
-          </section>
-        )}
+        <section className="w-full aspect-[1.5/1] md:aspect-[6.5/1] flex justify-center items-center bg-[#5A4E47]">
+          <div className="w-[80%] h-[200px] flex flex-col justify-around md:justify-center items-center md:h-auto md:flex-row">
+            <h1 className="w-[70%] GmarketBoldFont text-center text-[30px] md:text-[3rem] text-white">
+              10초면 충분한 빠른 견적 서비스
+            </h1>
+            <Link href="#">
+              <Button context="바로가기" buttonTheme="white-button" />
+            </Link>
+          </div>
+        </section>
 
         {/* Sixth Section (Review) */}
 
