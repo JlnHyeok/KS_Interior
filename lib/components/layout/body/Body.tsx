@@ -90,19 +90,19 @@ export const Body = ({ isMobile }: { isMobile: boolean }) => {
         />
 
         {/* Fourth Section (Movie) */}
-        {!isMobile && (
-          <section className="w-full aspect-[2.08/1] flex justify-center">
-            <div className="w-[85%] flex justify-center ">
-              <Article
-                title="시공 영상"
-                movie={{
-                  components: [<MovieMain />, <MovieSmall />],
-                  style: ["w-[50%] h-[95%] ", "w-[35%] h-[95%]"],
-                }}
-              />
-            </div>
-          </section>
-        )}
+        <section className="w-full aspect-[1/1.8] md:aspect-[2.08/1] flex justify-center">
+          <div className="w-full md:w-[85%] flex justify-center">
+            <Article
+              title="시공 영상"
+              movie={{
+                components: [<MovieMain />, <MovieSmall />],
+                style: isMobile
+                  ? ["w-[85%] h-[95%] ", "w-[85%] h-[280px]"]
+                  : ["w-[50%] h-[95%] ", "w-[35%] h-[95%]"],
+              }}
+            />
+          </div>
+        </section>
 
         {/* Fifth Section (Service) */}
         {!isMobile && (

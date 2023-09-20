@@ -149,7 +149,7 @@ export const Article = (props: IProps) => {
 
         {/* Movie Section */}
         {props.movie && (
-          <div className="mt-[1.5%] flex justify-center gap-10 w-[100%] mx-auto h-[75%] box-border items-center ">
+          <div className="mt-6 flex-col flex justify-center gap-4 w-[100%] mx-auto box-border items-center md:h-[75%] md:mt-[1.5%] md:flex-row md:gap-10">
             <MotionDiv
               children={props.movie.components[0]}
               className={props.movie!.style[0]}

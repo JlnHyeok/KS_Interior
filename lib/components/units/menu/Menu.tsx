@@ -109,23 +109,3 @@ export const SpreadMenu = ({ title, menus }: IProps) => {
     </div>
   )
 }
-
-{
-  /* <ul className="overflow-hidden w-[80%]">
-  <span className="NotoMediumFont mt-4 text-[18px] text-white block ">
-    {title}
-  </span>
-  <div
-    className={`${
-      isHover ? "opacity-100" : "opacity-0 hidden"
-    } bg-white duration-500 text-black`}
-  >
-    {menus?.map((menu, index) => (
-      <li key={index}>
-        <span>{menu}</span>
-      </li>
-    ))}
-  </div>
-</ul>
-<span className="h-[60px] w-[60px]">아이콘</span> */
-}
