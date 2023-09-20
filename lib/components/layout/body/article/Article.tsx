@@ -95,7 +95,7 @@ export const Article = (props: IProps) => {
 
         {/* Card Section */}
         {props.card && (
-          <div className="relative mt-[7%] flex justify-center gap-[4%] w-[80%] mx-auto h-[80%] box-border">
+          <div className="relative mt-[7%] flex justify-center gap-[4%] w-[80%] mx-auto h-[80%] box-border md:mt-[4%]">
             {props.isMobile ? (
               <div className="w-full h-full NotoMediumFont">
                 <div className="w-full h-[42px] flex items-center justify-between px-8 box-border">

@@ -16,6 +16,8 @@ export const BannerSlider = ({ imgInfo, className, isMobile }: IProps) => {
       showStatus={false}
       infiniteLoop={true}
       emulateTouch={true}
+      swipeable={!isMobile}
+      animationHandler={!isMobile ? "slide" : "slide"}
       autoPlay={true}
       stopOnHover={false}
       interval={5000}

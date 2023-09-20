@@ -1,13 +1,16 @@
 import React from "react"
 import { Menu } from "../../units/menu/Menu"
 import Link from "next/link"
+import { ImageWrap } from "../../units/image/ImageWrap"
 
 export const Header = () => {
   return (
     <header className="w-full h-20  relative flex justify-center text-white bg-[#5A4E47]">
       <div className="flex w-full relative  justify-center md:justify-normal md:w-[80%]">
-        <div className="md:hidden w-20 h-20  absolute left-0 flex items-center justify-center">
-          Ham Icon
+        <div className="hamburger md:hidden w-20 h-20 absolute left-0 flex flex-col items-center justify-center gap-2">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
         {/* LOGO */}
         <div className="justify-center  GmarketBoldFont text-center flex items-center w-[60%] text-[24px] md:w-[30%] md:justify-normal">

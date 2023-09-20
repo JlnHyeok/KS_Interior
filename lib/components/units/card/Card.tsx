@@ -31,12 +31,12 @@ export const Card = (props: IProps) => {
           </span>
         )}
         <h1
-          className={`NotoMediumFont mt-[3%] text-center text-[1.5rem] text-ellipsis overflow-hidden whitespace-nowrap ${props.style?.title}`}
+          className={`GmarketBoldFont w-[220px] mt-5 text-center text-[36px] text-ellipsis overflow-hidden whitespace-nowrap md:w-[90%] md:NotoMediumFont md:text-[1.5rem] md:mt-[3%] ${props.style?.title}`}
         >
           {props.title}
         </h1>
         <p
-          className={`h-[50%] NotoRegularFont text-left text-[16px] break-all w-[85%] mt-[2%] m-auto text-ellipsis overflow-hidden ${props.style?.content}`}
+          className={`w-[220px] h-[100px] NotoRegularFont text-left md:text-[16px] break-all mt-[2%] m-auto text-ellipsis overflow-hidden md:w-[85%] md:h-[50%] ${props.style?.content}`}
         >
           {props.content}
         </p>
