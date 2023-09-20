@@ -34,14 +34,7 @@ const BrownButton: () => React.ReactNode = () => (
   />
 )
 
-export const Body = () => {
-  const [isMobile, setIsMobile] = useState(false)
-  const [size, setSize] = useState(window.screen.width)
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-  }, [])
-
+export const Body = ({ isMobile }: { isMobile: boolean }) => {
   const firstCard: React.ReactNode = (
     <Card
       title="트렌디 화이트"
@@ -61,11 +54,6 @@ export const Body = () => {
     />
   )
 
-  useEffect(() => {
-    setSize(window.screen.width)
-    window.screen.width < 768 ? setIsMobile(true) : setIsMobile(false)
-  }, [size])
-
   return (
     <main className="w-full min-h-screen relative">
       <article className="w-full">
@@ -73,7 +61,7 @@ export const Body = () => {
         <div className="relative md:w-full md:aspect-[2.08/1] aspect-[1/1.5]">
           <BannerSlider
             imgInfo={isMobile ? bannerMobileImgInfo : bannerDeskImgInfo}
-            className="md:aspect-[2.08/1] relative blur-[1px] md:blur-0"
+            className="md:aspect-[2.08/1] relative"
             isMobile={isMobile}
           />
         </div>

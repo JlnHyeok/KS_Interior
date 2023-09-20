@@ -10,6 +10,27 @@ export const bannerMobileImgInfo = [
   { src: "/img/mobile/banner/third_banner.png", alt: "third_banner" },
   { src: "/img/mobile/banner/fourth_banner.png", alt: "fourth_banner" },
 ]
+export const bannerInnerText = [
+  {
+    title: "브라운 내추럴 디자인",
+    content:
+      "거실 인테리어는 곧 집의 인테리어를 결정합니다.\n중심을 잡아주는 내추럴 디자인",
+  },
+  {
+    title: "화이트 & 우드",
+    content:
+      "주방을 더욱 따뜻한 공간으로 만들어 줄\nKS인테리어만의 화이트&우드 인테리어",
+  },
+  {
+    title: "모던 인테리어",
+    content: "톤 다운된 컬러들의 조화가 엿보이는\nKS인테리어만의 모던 인테리어",
+  },
+  {
+    title: "사무실 인테리어",
+    content:
+      "회의실과 임원실을 더 세련되고 미니멀하게\nKS인테리어만의 사무실 인테리어",
+  },
+]
 
 export const reviewImgInfo = [
   {

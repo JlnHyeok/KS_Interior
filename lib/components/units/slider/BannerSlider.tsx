@@ -2,6 +2,7 @@ import React from "react"
 import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
 import { Carousel } from "react-responsive-carousel"
 import { ImageWrap } from "../image/ImageWrap"
+import { bannerInnerText } from "@/lib/constants/data/image"
 
 interface IProps {
   imgInfo: { src: string; alt: string }[]
@@ -17,7 +18,7 @@ export const BannerSlider = ({ imgInfo, className, isMobile }: IProps) => {
       infiniteLoop={true}
       emulateTouch={true}
       swipeable={!isMobile}
-      animationHandler={!isMobile ? "slide" : "slide"}
+      animationHandler={isMobile ? "fade" : "slide"}
       autoPlay={true}
       stopOnHover={false}
       interval={5000}
@@ -48,7 +49,11 @@ export const BannerSlider = ({ imgInfo, className, isMobile }: IProps) => {
       }
     >
       {imgInfo?.map((img, index) =>
-        ImageWrap({ imgInfo: { ...img, index }, className: className })
+        ImageWrap({
+          imgInfo: { ...img, index },
+          className: className,
+          innerText: isMobile ? bannerInnerText[index] : undefined,
+        })
       )}
     </Carousel>
   )

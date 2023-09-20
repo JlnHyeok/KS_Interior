@@ -11,16 +11,20 @@ interface IProps {
     link?: string
     className?: string
   }
+  innerText?: {
+    title: string
+    content: string
+  }
 }
 
-export const ImageWrap = ({ imgInfo, className }: IProps) => {
+export const ImageWrap = ({ imgInfo, className, innerText }: IProps) => {
   return imgInfo.link ? (
     <Link href="#" key={imgInfo.alt + imgInfo?.index}>
-      <div className={`relative ${className}`}>
+      <div className={`relative  ${className}`}>
         <Image
           alt={imgInfo.alt}
           src={imgInfo.src}
-          className={`!relative ${imgInfo.className}`}
+          className={`!relative z-0 blur-[1px] md:blur-0 ${imgInfo.className}`}
           placeholder="blur"
           blurDataURL={
             process.env.NODE_ENV === "development" ? imgInfo.src : undefined
@@ -30,17 +34,30 @@ export const ImageWrap = ({ imgInfo, className }: IProps) => {
       </div>
     </Link>
   ) : (
-    <div className={`relative ${className}`} key={imgInfo.alt + imgInfo?.index}>
+    <div
+      className={`relative z-0 ${className}`}
+      key={imgInfo.alt + imgInfo?.index}
+    >
       <Image
         alt={imgInfo.alt}
         src={imgInfo.src}
-        className={`!relative ${imgInfo.className}`}
+        className={`!relative blur-[2px] md:blur-0 ${imgInfo.className}`}
         blurDataURL={
           process.env.NODE_ENV === "development" ? imgInfo.src : undefined
         }
         placeholder="blur"
         fill
       />
+      {innerText && (
+        <div className="z-50 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-white flex flex-col items-center">
+          <h1 className="GmarketBoldFont text-[36px] w-[360px] drop-shadow-[2px_2px_2px_rgba(0,0,0,0.6)]">
+            {innerText.title}
+          </h1>
+          <p className="NotoMediumFont whitespace-pre-wrap text-[18px] w-[380px] drop-shadow-[1px_1px_1px_rgba(0,0,0,0.6)]">
+            {innerText.content}
+          </p>
+        </div>
+      )}
     </div>
   )
 }
