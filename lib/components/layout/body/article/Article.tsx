@@ -40,9 +40,7 @@ const emojiVariants: Variants = {
 
 export const Article = (props: IProps) => {
   const scrollRef = useRef(null)
-  const [mobileCardBest, setMobileCardBest] = useState(
-    props.card?.components[0]
-  )
+  const [mobileCardBest, setMobileCardBest] = useState(1)
 
   return (
     <div className={`w-full relative ${props.className && props.className}`}>
@@ -55,7 +53,7 @@ export const Article = (props: IProps) => {
       <div className="absolute z-10 w-full h-[80%] top-[12%] box-border ">
         {/* Title Section */}
         <MotionH1
-          className="GmarketBoldFont text-center text-[36px] w-[90%]  m-auto"
+          className="GmarketBoldFont w-[370px] text-center text-[36px] m-auto md:w-[90%]"
           animationEffect={emojiVariants}
           amount={0.7}
           scrollRef={scrollRef}
@@ -75,7 +73,7 @@ export const Article = (props: IProps) => {
         {/* Context Section */}
         {props.contents && (
           <MotionP
-            className="NotoMediumFont text-[16px] break-all  m-auto w-[80%] mt-[9%] md:w-[720px] md:mt-[6%]"
+            className="NotoMediumFont text-[16px] break-all m-auto w-[80%] mt-[9%] md:w-[720px] md:mt-[6%]"
             animationEffect={emojiVariants}
             scrollRef={scrollRef}
             amount={0.4}
@@ -97,25 +95,42 @@ export const Article = (props: IProps) => {
 
         {/* Card Section */}
         {props.card && (
-          <div className="mt-[3%] flex justify-center gap-[4%] w-[80%] mx-auto h-[80%] box-border">
+          <div className="relative mt-[7%] flex justify-center gap-[4%] w-[80%] mx-auto h-[80%] box-border">
             {props.isMobile ? (
               <div className="w-full h-full NotoMediumFont">
-                <div className="w-full h-[42px] flex items-center justify-between px-4 box-border">
+                <div className="w-full h-[42px] flex items-center justify-between px-8 box-border">
                   <button
                     autoFocus
-                    onClick={() => setMobileCardBest(props.card?.components[0])}
-                    className="focus:border-b-2 pb-8 h-[28px] text-[#5A4E47] text-lg focus:outline-none border-black"
+                    onClick={() => setMobileCardBest(1)}
+                    className={`pb-2 h-[28px] text-[#5A4E47] text-lg focus:outline-none border-black ${
+                      mobileCardBest === 1 ? "border-b-2" : "text-[#5a4e4757]"
+                    }`}
                   >
                     트렌디 화이트
                   </button>
                   <button
-                    onClick={() => setMobileCardBest(props.card?.components[1])}
-                    className="focus:border-b-2 pb-8 h-[28px] text-[#5A4E47] text-lg focus:outline-none border-black"
+                    onClick={() => setMobileCardBest(2)}
+                    className={`pb-2 h-[28px] text-[#5A4E47] text-lg focus:outline-none border-black ${
+                      mobileCardBest === 2 ? "border-b-2" : "text-[#5a4e4757]"
+                    }`}
                   >
                     트렌디 내추럴
                   </button>
                 </div>
-                <div className="w-full h-full mt-4">{mobileCardBest}</div>
+                <div
+                  className={`w-full mt-4 absolute bg-red-200 duration-200 ${
+                    mobileCardBest === 1 ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {props.card.components[0]}
+                </div>
+                <div
+                  className={`w-full mt-4 absolute bg-red-200 duration-200 ${
+                    mobileCardBest === 2 ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {props.card.components[1]}
+                </div>
               </div>
             ) : (
               props.card.components.map((card, index) => (

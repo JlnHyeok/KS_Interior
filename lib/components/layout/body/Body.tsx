@@ -93,7 +93,7 @@ export const Body = () => {
         {/* Third Section (Best)*/}
         <Article
           title="Best Interior Trend"
-          className="md:aspect-[16/8] aspect-[1/1.8] max-h-[800px] bg-[#dfd3c354]"
+          className="md:aspect-[16/8] aspect-[1/1.9] max-h-[800px] bg-[#dfd3c354]"
           isMobile={isMobile}
           card={{
             components: [firstCard, secondCard],
