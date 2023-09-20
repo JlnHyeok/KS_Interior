@@ -5,7 +5,7 @@ import { ImageWrap } from "../image/ImageWrap"
 import { bannerInnerText } from "@/lib/constants/data/image"
 
 interface IProps {
-  imgInfo: { src: string; alt: string }[]
+  imgInfo: { src: string; alt: string; className?: string }[]
   className?: string
   isMobile: boolean
 }
@@ -53,6 +53,7 @@ export const BannerSlider = ({ imgInfo, className, isMobile }: IProps) => {
           imgInfo: { ...img, index },
           className: className,
           innerText: isMobile ? bannerInnerText[index] : undefined,
+          imgBlur: "md:blur-none blur-[2px]",
         })
       )}
     </Carousel>

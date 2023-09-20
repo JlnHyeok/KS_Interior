@@ -4,6 +4,7 @@ import Link from "next/link"
 
 interface IProps {
   className?: string
+  imgBlur?: string
   imgInfo: {
     src: string
     alt: string
@@ -17,14 +18,19 @@ interface IProps {
   }
 }
 
-export const ImageWrap = ({ imgInfo, className, innerText }: IProps) => {
+export const ImageWrap = ({
+  imgInfo,
+  className,
+  innerText,
+  imgBlur,
+}: IProps) => {
   return imgInfo.link ? (
     <Link href="#" key={imgInfo.alt + imgInfo?.index}>
       <div className={`relative  ${className}`}>
         <Image
           alt={imgInfo.alt}
           src={imgInfo.src}
-          className={`!relative z-0 blur-[1px] md:blur-0 ${imgInfo.className}`}
+          className={`!relative z-0 ${imgInfo.className} ${imgBlur}`}
           placeholder="blur"
           blurDataURL={
             process.env.NODE_ENV === "development" ? imgInfo.src : undefined
@@ -41,7 +47,7 @@ export const ImageWrap = ({ imgInfo, className, innerText }: IProps) => {
       <Image
         alt={imgInfo.alt}
         src={imgInfo.src}
-        className={`!relative blur-[2px] md:blur-0 ${imgInfo.className}`}
+        className={`!relative ${imgInfo.className} ${imgBlur}`}
         blurDataURL={
           process.env.NODE_ENV === "development" ? imgInfo.src : undefined
         }

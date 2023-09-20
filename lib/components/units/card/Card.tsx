@@ -10,7 +10,7 @@ interface IProps {
     content?: string
     button?: string
   }
-  imgInfo: { src: string; alt: string }
+  imgInfo: { src: string; alt: string; className?: string }
   content: string
   button?: React.ReactNode
   score?: number
@@ -41,7 +41,7 @@ export const Card = (props: IProps) => {
           {props.content}
         </p>
         {props.score && (
-          <div className="absolute bottom-2 w-[88%] h-[40px] flex items-center justify-between">
+          <div className="absolute !blur-none bottom-2 w-[88%] h-[40px] flex items-center justify-between">
             <div className=" w-[60%] flex items-center">
               <span className="NotoMediumFont text-sm">별점 : </span>
               <Rating score={props.score!} />
