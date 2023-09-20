@@ -79,7 +79,9 @@ export const SpreadMenu = ({ title, menus }: IProps) => {
             <span className="flex justify-end items-center h-[60px] w-[60px]">
               <span
                 className={`bg-red-200 relative arrow ${
-                  isHover ? "after:rotate-[315deg]" : "after:rotate-[135deg]"
+                  isHover
+                    ? "after:rotate-[315deg] after:top-[0px]"
+                    : "after:rotate-[135deg]"
                 } after:duration-300`}
               ></span>
             </span>
