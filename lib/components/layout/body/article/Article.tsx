@@ -55,7 +55,7 @@ export const Article = (props: IProps) => {
         <MotionH1
           className="GmarketBoldFont w-[370px] text-center text-[36px] m-auto md:w-[90%]"
           animationEffect={emojiVariants}
-          amount={0.7}
+          amount={props.isMobile ? 0.3 : 0.7}
           scrollRef={scrollRef}
         >
           {props.title}
@@ -64,7 +64,7 @@ export const Article = (props: IProps) => {
         {props.divider && (
           <MotionDiv
             className="w-[20px] h-[1px] bg-[#333333] m-auto mt-8 md:w-[100px]"
-            amount={0.7}
+            amount={props.isMobile ? 0.3 : 0.7}
             scrollRef={scrollRef}
             animationEffect={emojiVariants}
           />
@@ -88,7 +88,7 @@ export const Article = (props: IProps) => {
             children={props.button}
             className="flex justify-center absolute w-full bottom-4"
             animationEffect={emojiVariants}
-            amount={0.7}
+            amount={props.isMobile ? 0.3 : 0.7}
             scrollRef={scrollRef}
           />
         )}
