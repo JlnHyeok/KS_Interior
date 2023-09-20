@@ -1,5 +1,5 @@
 "use client"
-import React from "react"
+import React, { useState } from "react"
 import { CustomFlowbiteTheme, Dropdown, Flowbite } from "flowbite-react"
 
 interface IProps {
@@ -63,4 +63,67 @@ export const Menu = (props: IProps) => {
       </Dropdown>
     </Flowbite>
   )
+}
+
+export const SpreadMenu = ({ title, menus }: IProps) => {
+  const [isHover, setIsHover] = useState(false)
+  return (
+    <div className="w-full ">
+      <div
+        className={`w-[90%] border-b-[1px] border-white mx-auto`}
+        onClick={() => setIsHover(!isHover)}
+      >
+        <div className="h-full">
+          <div className="flex h-full justify-between items-center">
+            <span className="NotoMediumFont text-[18px] block">{title}</span>
+            <span className="flex justify-end items-center h-[60px] w-[60px]">
+              <span
+                className={`bg-red-200 relative arrow ${
+                  isHover ? "after:rotate-[315deg]" : "after:rotate-[135deg]"
+                } after:duration-300`}
+              ></span>
+            </span>
+          </div>
+          <div
+            className={`${
+              isHover
+                ? `h-[240px] opacity-100`
+                : "h-0 overflow-hidden opacity-0"
+            } bg-white text-black list-none duration-300`}
+          >
+            {menus?.map((menu, index) => (
+              <li
+                key={index}
+                className="flex flex-col justify-center h-12 duration-300"
+              >
+                <span className="NotoMediumFont text-[16px] ml-2 text-[#5A4E47]">
+                  {menu}
+                </span>
+              </li>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+{
+  /* <ul className="overflow-hidden w-[80%]">
+  <span className="NotoMediumFont mt-4 text-[18px] text-white block ">
+    {title}
+  </span>
+  <div
+    className={`${
+      isHover ? "opacity-100" : "opacity-0 hidden"
+    } bg-white duration-500 text-black`}
+  >
+    {menus?.map((menu, index) => (
+      <li key={index}>
+        <span>{menu}</span>
+      </li>
+    ))}
+  </div>
+</ul>
+<span className="h-[60px] w-[60px]">아이콘</span> */
 }
