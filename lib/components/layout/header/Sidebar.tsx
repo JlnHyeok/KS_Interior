@@ -24,7 +24,7 @@ export function Sidebar({
               x: "-100%",
             }}
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-            className="fixed bg-[#5A4E47] touch-none text-white shadow-lg top-0 right-0 w-full min-h-screen z-50"
+            className="fixed overflow-x-scroll bg-[#5A4E47] text-white shadow-lg top-0 right-0 w-full h-screen z-50"
           >
             <header className="w-full h-20 relative flex justify-center text-white">
               <HamburgerIcon

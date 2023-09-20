@@ -69,12 +69,12 @@ export const SpreadMenu = ({ title, menus }: IProps) => {
   const [isHover, setIsHover] = useState(false)
   return (
     <div className="w-full ">
-      <div
-        className={`w-[90%] border-b-[1px] border-white mx-auto`}
-        onClick={() => setIsHover(!isHover)}
-      >
+      <div className={`w-[90%] border-b-[1px] border-white mx-auto`}>
         <div className="h-full">
-          <div className="flex h-full justify-between items-center">
+          <div
+            className="flex h-full justify-between items-center"
+            onClick={() => setIsHover(!isHover)}
+          >
             <span className="NotoMediumFont text-[18px] block">{title}</span>
             <span className="flex justify-end items-center h-[60px] w-[60px]">
               <span
@@ -94,7 +94,7 @@ export const SpreadMenu = ({ title, menus }: IProps) => {
             {menus?.map((menu, index) => (
               <li
                 key={index}
-                className="flex flex-col justify-center h-12 duration-300"
+                className="flex flex-col justify-center h-12 duration-300 hover:bg-gray-100"
               >
                 <span className="NotoMediumFont text-[16px] ml-2 text-[#5A4E47]">
                   {menu}
