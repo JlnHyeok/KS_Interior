@@ -118,14 +118,14 @@ export const Article = (props: IProps) => {
                   </button>
                 </div>
                 <div
-                  className={`w-full mt-4 absolute bg-red-200 duration-200 ${
+                  className={`w-full mt-4 absolute duration-200 ${
                     mobileCardBest === 1 ? "opacity-100" : "opacity-0"
                   }`}
                 >
                   {props.card.components[0]}
                 </div>
                 <div
-                  className={`w-full mt-4 absolute bg-red-200 duration-200 ${
+                  className={`w-full mt-4 absolute duration-200 ${
                     mobileCardBest === 2 ? "opacity-100" : "opacity-0"
                   }`}
                 >
@@ -172,7 +172,7 @@ export const Article = (props: IProps) => {
         {/* Review Section */}
         {props.review && (
           <MotionDiv
-            className="mt-[1.5%] flex justify-center w-[1050px] mx-auto h-[75%] box-border items-center"
+            className="mt-[1.5%] flex justify-center mx-auto h-[75%] box-border items-center md:w-[1050px]"
             children={props.review.components}
             amount={0.2}
             scrollRef={scrollRef}

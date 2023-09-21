@@ -107,7 +107,7 @@ export const Body = ({ isMobile }: { isMobile: boolean }) => {
         {/* Fifth Section (Service) */}
         <section className="w-full aspect-[1.5/1] md:aspect-[6.5/1] flex justify-center items-center bg-[#5A4E47]">
           <div className="w-[80%] h-[200px] flex flex-col justify-around md:justify-center items-center md:h-auto md:flex-row">
-            <h1 className="w-[70%] GmarketBoldFont text-center text-[30px] md:text-[3rem] text-white">
+            <h1 className="w-[220px] GmarketBoldFont text-center text-[30px] md:text-[3rem] text-white md:w-[70%]">
               10초면 충분한 빠른 견적 서비스
             </h1>
             <Link href="#">
@@ -118,17 +118,17 @@ export const Body = ({ isMobile }: { isMobile: boolean }) => {
 
         {/* Sixth Section (Review) */}
 
-        {!isMobile && (
-          <section className="w-full aspect-[2/1] max-h-[700px]  bg-white flex justify-center">
-            <Article
-              title="시공 후기"
-              review={{
-                components: <MultiSlider imgInfo={reviewImgInfo} />,
-                style: "",
-              }}
-            />
-          </section>
-        )}
+        <section className="w-full h-[600px] bg-gradient-to-t to-[#D9D9D900] from-[#DFD3C380] flex justify-center md:aspect-[2/1] md:max-h-[700px] md:bg-white md:from-white md:to-white md:h-auto">
+          <Article
+            title="시공 후기"
+            review={{
+              components: (
+                <MultiSlider imgInfo={reviewImgInfo} isMobile={isMobile} />
+              ),
+              style: "",
+            }}
+          />
+        </section>
 
         {/* Seventh Section (Noti & Consult) */}
         {!isMobile && (

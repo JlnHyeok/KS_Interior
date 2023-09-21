@@ -41,7 +41,7 @@ export const Card = (props: IProps) => {
           {props.content}
         </p>
         {props.score && (
-          <div className="absolute !blur-none bottom-2 w-[88%] h-[40px] flex items-center justify-between">
+          <div className="absolute !blur-none bottom-2 w-[88%] flex items-center justify-between md:h-[40px]">
             <div className=" w-[60%] flex items-center">
               <span className="NotoMediumFont text-sm">별점 : </span>
               <Rating score={props.score!} />
