@@ -27,6 +27,7 @@ export const Header = () => {
                 key={menu.title + index}
                 title={menu.title}
                 menus={menu.menus}
+                links={menu.links}
               />
             ))}
           </nav>

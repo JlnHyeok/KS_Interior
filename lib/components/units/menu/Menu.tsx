@@ -1,10 +1,12 @@
 "use client"
 import React, { useState } from "react"
 import { CustomFlowbiteTheme, Dropdown, Flowbite } from "flowbite-react"
+import Link from "next/link"
 
 interface IProps {
   title: string
   menus: Array<string>
+  links: Array<string>
 }
 
 const customTheme: CustomFlowbiteTheme = {
@@ -31,7 +33,7 @@ const customTheme: CustomFlowbiteTheme = {
       // Item
       item: {
         container: "",
-        base: "min-w-[100px] menu flex items-center rounded justify-center py-3 px-4 text-sm text-gray-600 cursor-pointer w-full hover:bg-gray-100 focus:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 focus:outline-none dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white",
+        base: "min-w-[100px] outline-none menu flex items-center rounded justify-center py-3 px-4 text-sm text-gray-600 cursor-pointer w-full hover:bg-gray-100 focus:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 focus:outline-none dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white",
         icon: "mr-2 h-4 w-4",
       },
       style: {
@@ -58,14 +60,20 @@ export const Menu = (props: IProps) => {
         label={props.title}
       >
         {props.menus?.map((menu, index) => (
-          <Dropdown.Item key={index}>{menu}</Dropdown.Item>
+          <Link
+            href={props.links[index]}
+            key={index}
+            className="focus:outline-none"
+          >
+            <Dropdown.Item>{menu}</Dropdown.Item>
+          </Link>
         ))}
       </Dropdown>
     </Flowbite>
   )
 }
 
-export const SpreadMenu = ({ title, menus }: IProps) => {
+export const SpreadMenu = ({ title, menus, links }: IProps) => {
   const [isHover, setIsHover] = useState(false)
   return (
     <div className="w-full ">
@@ -94,14 +102,13 @@ export const SpreadMenu = ({ title, menus }: IProps) => {
             } bg-white text-black list-none duration-300`}
           >
             {menus?.map((menu, index) => (
-              <li
-                key={index}
-                className="flex flex-col justify-center h-12 duration-300 hover:bg-gray-100"
-              >
-                <span className="NotoMediumFont text-[16px] ml-2 text-[#5A4E47]">
-                  {menu}
-                </span>
-              </li>
+              <Link href={links[index]} key={index}>
+                <li className="flex flex-col justify-center h-12 duration-300 hover:bg-gray-100">
+                  <span className="NotoMediumFont text-[16px] ml-2 text-[#5A4E47]">
+                    {menu}
+                  </span>
+                </li>
+              </Link>
             ))}
           </div>
         </div>

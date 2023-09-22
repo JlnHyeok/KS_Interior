@@ -4,7 +4,7 @@ interface IProps {
   children?: React.ReactNode
   amount: number
   scrollRef: React.MutableRefObject<null>
-  className: string
+  className?: string
   animationEffect: Variants
 }
 
@@ -67,4 +67,41 @@ export const MotionP = ({
       {children}
     </motion.p>
   )
+}
+
+export const MotionWrapper = ({
+  children,
+  className,
+  isMobile,
+}: {
+  children: React.ReactNode
+  className?: string
+  isMobile?: boolean
+}) => {
+  return (
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      transition={{ duration: 0.5 }}
+      variants={!isMobile ? pageEffect : undefined}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  )
+}
+const pageEffect = {
+  initial: {
+    opacity: 0,
+    x: "-100%",
+  },
+  in: {
+    opacity: 1,
+    x: 0,
+  },
+  out: {
+    opacity: 1,
+    x: "100%",
+  },
 }

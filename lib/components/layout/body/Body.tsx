@@ -14,6 +14,7 @@ import {
 } from "@/lib/constants/data/image"
 import { visionDeskInfo, visionMobileInfo } from "@/lib/constants/data/article"
 import Link from "next/link"
+import { MotionWrapper } from "../../motion/motionTag"
 
 const WhiteButton: () => React.ReactNode = () => (
   <Button
@@ -33,29 +34,36 @@ const BrownButton: () => React.ReactNode = () => (
     }}
   />
 )
+const FirstCard: (props: any) => React.JSX.Element = ({
+  isMobile,
+}: {
+  isMobile: boolean
+}) => (
+  <Card
+    title="트렌디 화이트"
+    className="w-full md:w-[380px]"
+    imgInfo={{ src: "/img/card/first_card.svg", alt: "first_card" }}
+    content="Lorem ipsum dolor sit amet consectetur. Neque accumsan lectus tellus a dictumst arcu. Venenatis nec volutpat euismod a."
+    button={!isMobile && <BrownButton />}
+  />
+)
+const SecondCard: (props: any) => React.JSX.Element = ({
+  isMobile,
+}: {
+  isMobile: boolean
+}) => (
+  <Card
+    title="트렌디 내추럴"
+    className="w-full md:w-[380px]"
+    imgInfo={{ src: "/img/card/second_card.svg", alt: "second_card" }}
+    content="Lorem ipsum dolor sit amet consectetur. Neque accumsan lectus tellus a dictumst arcu. Venenatis nec volutpat euismod a."
+    button={!isMobile && <BrownButton />}
+  />
+)
 
 export const Body = ({ isMobile }: { isMobile: boolean }) => {
-  const firstCard: React.ReactNode = (
-    <Card
-      title="트렌디 화이트"
-      className="w-full md:w-[380px]"
-      imgInfo={{ src: "/img/card/first_card.svg", alt: "first_card" }}
-      content="Lorem ipsum dolor sit amet consectetur. Neque accumsan lectus tellus a dictumst arcu. Venenatis nec volutpat euismod a."
-      button={!isMobile && <BrownButton />}
-    />
-  )
-  const secondCard: React.ReactNode = (
-    <Card
-      title="트렌디 내추럴"
-      className="w-full md:w-[380px]"
-      imgInfo={{ src: "/img/card/second_card.svg", alt: "second_card" }}
-      content="Lorem ipsum dolor sit amet consectetur. Neque accumsan lectus tellus a dictumst arcu. Venenatis nec volutpat euismod a."
-      button={!isMobile && <BrownButton />}
-    />
-  )
-
   return (
-    <main className="w-full min-h-screen relative">
+    <MotionWrapper className="w-full min-h-screen relative" isMobile={isMobile}>
       <article className="w-full">
         {/* First Section (Slide) */}
         <div className="relative md:w-full md:aspect-[2.08/1] aspect-[1/1.5]">
@@ -84,8 +92,10 @@ export const Body = ({ isMobile }: { isMobile: boolean }) => {
           className="md:aspect-[16/8] md:min-h-[780px] aspect-[1/1.9] max-h-[800px] bg-[#dfd3c354]"
           isMobile={isMobile}
           card={{
-            components: [firstCard, secondCard],
-            style: "",
+            components: [
+              <FirstCard isMobile={isMobile} />,
+              <SecondCard isMobile={isMobile} />,
+            ],
           }}
         />
 
@@ -96,9 +106,6 @@ export const Body = ({ isMobile }: { isMobile: boolean }) => {
               title="시공 영상"
               movie={{
                 components: [<MovieMain />, <MovieSmall />],
-                style: isMobile
-                  ? ["w-[85%] h-[95%] ", "w-[85%] h-[280px]"]
-                  : ["w-[50%] h-[95%] ", "w-[35%] h-[95%]"],
               }}
             />
           </div>
@@ -142,6 +149,6 @@ export const Body = ({ isMobile }: { isMobile: boolean }) => {
           </section>
         )}
       </article>
-    </main>
+    </MotionWrapper>
   )
 }

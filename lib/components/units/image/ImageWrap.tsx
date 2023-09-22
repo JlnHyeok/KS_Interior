@@ -14,7 +14,9 @@ interface IProps {
   }
   innerText?: {
     title: string
-    content: string
+    titleStyle?: string
+    content?: string
+    contentStyle?: string
   }
 }
 
@@ -26,7 +28,7 @@ export const ImageWrap = ({
 }: IProps) => {
   return imgInfo.link ? (
     <Link href="#" key={imgInfo.alt + imgInfo?.index}>
-      <div className={`relative  ${className}`}>
+      <div className={`relative ${className}`}>
         <Image
           alt={imgInfo.alt}
           src={imgInfo.src}
@@ -56,10 +58,14 @@ export const ImageWrap = ({
       />
       {innerText && (
         <div className="z-50 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-white flex flex-col items-center">
-          <h1 className="GmarketBoldFont text-[36px] w-[360px] drop-shadow-[2px_2px_2px_rgba(0,0,0,0.6)]">
+          <h1
+            className={`GmarketBoldFont text-[36px] w-[360px] drop-shadow-[2px_2px_2px_rgba(0,0,0,0.6)] md:w-full md:text-[48px] md:text-center md:drop-shadow-none ${innerText.titleStyle}`}
+          >
             {innerText.title}
           </h1>
-          <p className="NotoMediumFont whitespace-pre-wrap text-[18px] w-[380px] drop-shadow-[1px_1px_1px_rgba(0,0,0,0.6)]">
+          <p
+            className={`NotoMediumFont whitespace-pre-wrap text-[18px] w-[380px] drop-shadow-[1px_1px_1px_rgba(0,0,0,0.6)] md:w-full md:text-center md:drop-shadow-none ${innerText.contentStyle}`}
+          >
             {innerText.content}
           </p>
         </div>

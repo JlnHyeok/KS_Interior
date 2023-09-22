@@ -41,6 +41,7 @@ export function Sidebar({
                   key={menu.title + index}
                   title={menu.title}
                   menus={menu.menus}
+                  links={menu.links}
                 />
               ))}
             </div>

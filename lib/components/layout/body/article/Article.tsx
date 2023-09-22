@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react"
 import { ImageWrap } from "../../../units/image/ImageWrap"
-import { Variants, motion } from "framer-motion"
+import { Variants } from "framer-motion"
 import { MotionDiv, MotionH1, MotionP } from "../../../motion/motionTag"
 
 interface IProps {
@@ -12,8 +12,8 @@ interface IProps {
   divider?: boolean
   contents?: string
   button?: React.ReactNode
-  card?: { components: React.ReactNode[]; style: string }
-  movie?: { components: React.ReactNode[]; style: string[] }
+  card?: { components: React.ReactNode[] }
+  movie?: { components: React.ReactNode[] }
   review?: { components: React.ReactNode; style: string }
 }
 
@@ -137,7 +137,6 @@ export const Article = (props: IProps) => {
                 <MotionDiv
                   key={index}
                   children={card}
-                  className={props.card!.style}
                   amount={0.2}
                   scrollRef={scrollRef}
                   animationEffect={emojiVariants}
@@ -152,16 +151,15 @@ export const Article = (props: IProps) => {
           <div className="mt-6 flex-col flex justify-center gap-4 w-[100%] mx-auto box-border items-center md:h-[75%] md:mt-[1.5%] md:flex-row md:gap-10">
             <MotionDiv
               children={props.movie.components[0]}
-              className={props.movie!.style[0]}
+              className="md:w-[50%] w-[85%] h-[95%] "
               amount={0.2}
               scrollRef={scrollRef}
               animationEffect={emojiVariants}
             />
             <MotionDiv
               children={props.movie.components[1]}
-              className={`${
-                props.movie!.style[1]
-              } flex-col flex items-center justify-between `}
+              className="md:w-[35%] md:h-[95%] w-[85%] h-[280px]
+               flex-col flex items-center justify-between "
               amount={0.2}
               scrollRef={scrollRef}
               animationEffect={emojiVariants}
