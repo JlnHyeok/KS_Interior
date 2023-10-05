@@ -1,7 +1,6 @@
 import Image from "next/image"
 import React from "react"
 import Link from "next/link"
-import { getPlaiceholder } from "plaiceholder"
 
 interface IProps {
   className?: string
@@ -21,9 +20,6 @@ interface IProps {
   }
 }
 
-const blurUrl =
-  "data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-
 export const ImageWrap = ({
   imgInfo,
   className,
@@ -38,10 +34,9 @@ export const ImageWrap = ({
           src={imgInfo.src}
           className={`!relative z-0 ${imgInfo.className} ${imgBlur}`}
           placeholder="blur"
-          blurDataURL={blurUrl}
-          // {
-          //   process.env.NODE_ENV === "development" ? imgInfo.src : undefined
-          // }
+          blurDataURL={
+            process.env.NODE_ENV === "development" ? imgInfo.src : undefined
+          }
           fill
         />
       </div>
@@ -55,10 +50,9 @@ export const ImageWrap = ({
         alt={imgInfo.alt}
         src={imgInfo.src}
         className={`!relative ${imgInfo.className} ${imgBlur}`}
-        blurDataURL={blurUrl}
-        // {
-        //   process.env.NODE_ENV === "development" ? imgInfo.src : undefined
-        // }
+        blurDataURL={
+          process.env.NODE_ENV === "development" ? imgInfo.src : undefined
+        }
         placeholder="blur"
         fill
       />
