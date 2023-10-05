@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { HamburgerIcon } from "../../units/icon/HamburgerIcon"
 import { Logo } from "../../units/logo/Logo"
 import { menuList } from "@/lib/constants/data/menu"
-import { Menu, SpreadMenu } from "../../units/menu/Menu"
+import { SpreadMenu } from "../../units/menu/Menu"
 
 export function Sidebar({
   sideBar,
@@ -42,6 +42,7 @@ export function Sidebar({
                   title={menu.title}
                   menus={menu.menus}
                   links={menu.links}
+                  setSideBar={setSideBar}
                 />
               ))}
             </div>
