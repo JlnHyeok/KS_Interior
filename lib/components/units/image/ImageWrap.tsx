@@ -34,9 +34,7 @@ export const ImageWrap = ({
           src={imgInfo.src}
           className={`!relative z-0 ${imgInfo.className} ${imgBlur}`}
           placeholder="blur"
-          blurDataURL={
-            process.env.NODE_ENV === "development" ? imgInfo.src : undefined
-          }
+          blurDataURL={imgInfo.src}
           fill
         />
       </div>
@@ -50,9 +48,7 @@ export const ImageWrap = ({
         alt={imgInfo.alt}
         src={imgInfo.src}
         className={`!relative ${imgInfo.className} ${imgBlur}`}
-        blurDataURL={
-          process.env.NODE_ENV === "development" ? imgInfo.src : undefined
-        }
+        blurDataURL={imgInfo.src}
         placeholder="blur"
         fill
       />
