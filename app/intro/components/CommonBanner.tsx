@@ -8,7 +8,7 @@ interface IProps {
 
 export const CommonBanner = ({ title, content }: IProps) => {
   return (
-    <div className="relative bg-red-50">
+    <div className="relative w-full aspect-[4.8]">
       <ImageWrap
         imgInfo={{
           src: "/img/intro/banner.png",
