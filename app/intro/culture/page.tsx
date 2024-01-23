@@ -48,27 +48,29 @@ const page = () => {
     },
   ]
   return (
-    <MotionWrapper className="flex justify-center gap-6 items-center h-[450px] w-full">
-      {props.map((prop, index) => (
-        <motion.div
-          className="rounded-[10px]"
-          whileHover={{
-            scale: 1.05,
-            transition: { duration: 0.5 },
-          }}
-        >
-          <ImageWrap
-            key={index}
-            imgInfo={{ ...prop.imgInfo, className: commonImgClassName }}
-            className={commonImgWrapClassName}
-            innerText={{
-              title: prop.innerText.title,
-              titleStyle: commonTitleStyle,
+    <div className="w-full h-[450px]">
+      <MotionWrapper className="flex justify-center gap-6 items-center h-[450px] w-full">
+        {props.map((prop, index) => (
+          <motion.div
+            className="rounded-[10px]"
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.5 },
             }}
-          />
-        </motion.div>
-      ))}
-    </MotionWrapper>
+          >
+            <ImageWrap
+              key={index}
+              imgInfo={{ ...prop.imgInfo, className: commonImgClassName }}
+              className={commonImgWrapClassName}
+              innerText={{
+                title: prop.innerText.title,
+                titleStyle: commonTitleStyle,
+              }}
+            />
+          </motion.div>
+        ))}
+      </MotionWrapper>
+    </div>
   )
 }
 

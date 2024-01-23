@@ -25,10 +25,12 @@ export default function page() {
   ]
 
   return (
-    <MotionWrapper className="flex justify-center gap-10 items-center h-[450px] w-full">
-      {textInfo.map((text, index) => (
-        <Circle key={index} text={text.text} content={text.content} />
-      ))}
-    </MotionWrapper>
+    <div className="h-[450px] w-full">
+      <MotionWrapper className="flex justify-center gap-10 items-center h-[450px] w-full">
+        {textInfo.map((text, index) => (
+          <Circle key={index} text={text.text} content={text.content} />
+        ))}
+      </MotionWrapper>
+    </div>
   )
 }
